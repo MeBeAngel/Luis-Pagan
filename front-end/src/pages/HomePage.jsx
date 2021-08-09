@@ -1,5 +1,4 @@
 import React from "react";
-import Header from "../components/Header";
 import Nav from "../components/Nav";
 import Footer from "../components/Footer";
 import Button from "../components/Button";
@@ -15,14 +14,12 @@ import LinkedinBlack from "../images/linkedin_black.svg";
 export default function HomePage() {
   return (
     <div>
-      <Header
+      <Nav
         headerClass="gray-header"
         facebookIcon={FacebookBlack}
         instagramIcon={InstagramBlack}
         linkedinIcon={LinkedinBlack}
-      />
 
-      <Nav
         navClass="black-nav"
         logo={LogoWithBackground}
         btnClass="sm-btn yellow-btn"
