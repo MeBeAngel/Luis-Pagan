@@ -1,6 +1,7 @@
 import React from "react";
 import Nav from "../components/Nav";
 import TestimonialOne from "../components/TestimonialOne";
+import Benefits from '../components/Benefits';
 import Footer from "../components/Footer";
 import Button from "../components/Button";
 
@@ -42,7 +43,7 @@ export default function HomePage() {
         ></video>
       </section>
 
-      <section className="benefits"></section>
+      <Benefits />
 
       <TestimonialOne title="TESTIMONIAL" rightVideo="hide" />
       <TestimonialOne class="background-black gray" title="TESTIMONIAL" rightVideo="hide" />
