@@ -2,6 +2,7 @@ import React from "react";
 import Nav from "../components/Nav";
 import TestimonialOne from "../components/TestimonialOne";
 import Benefits from '../components/Benefits';
+import Recruits from "../components/Recruits";
 import Footer from "../components/Footer";
 import Button from "../components/Button";
 
@@ -37,6 +38,7 @@ export default function HomePage() {
           </div>
         </div>
         <video
+          // autoplay="autoplay"
           muted="muted"
           loop="loop"
           src="https://luis-pagan.s3.us-east-2.amazonaws.com/Nation_Gaurd_Video.mp4"
@@ -46,6 +48,9 @@ export default function HomePage() {
       <Benefits />
 
       <TestimonialOne title="TESTIMONIAL" rightVideo="hide" />
+
+      <Recruits />
+      
       <TestimonialOne class="background-black gray" title="TESTIMONIAL" rightVideo="hide" />
 
       <section className="email-request">
