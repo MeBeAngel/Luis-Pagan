@@ -18,7 +18,7 @@ export default function Nav(props) {
   }
 
   return (
-    <div class="nav-wrapper">
+    <div className="nav-wrapper">
       <header className={props.headerClass}>
         <div className="social-media bold">
           <div>
@@ -50,14 +50,14 @@ export default function Nav(props) {
       </nav>
 
       <div className="drop-down-overlay" onClick={closeOverlay}>
-        <div class="drop-down__links">
-          <Link class="link" to="/" onClick={closeOverlay}>
+        <div className="drop-down__links">
+          <Link className="link" to="/" onClick={closeOverlay}>
             <p>HOME</p>
           </Link>
-          <Link class="link" to="/about" onClick={closeOverlay}>
+          <Link className="link" to="/about" onClick={closeOverlay}>
             <p>ABOUT ME</p>
           </Link>
-          <Link class="link" to="/mos" onClick={closeOverlay}>
+          <Link className="link" to="/mos" onClick={closeOverlay}>
             <p>TOP 10 M.O.S</p>
           </Link>
         </div>
