@@ -2,8 +2,10 @@ import React from "react";
 
 export default function MosPage() {
     return (
-        <div>
-        <h1> MOS Page </h1>
+        <div className="mos-page">
+          <div className="mos-wrapper">
+            <div className="mos-item"></div>
+          </div>
       </div>
     );
 }
