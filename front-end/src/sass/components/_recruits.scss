@@ -4,8 +4,20 @@
   overflow: hidden;
 
   .slider {
+    max-width: 370px;
+    margin: 0 auto;
     .slick-dots {
       bottom: 0;
+    }
+  }
+  @media(min-width: 768px) {
+    .slider {
+      max-width: 700px;
+    }
+  }
+  @media(min-width: 1100px) {
+    .slider {
+      max-width: 1050px;
     }
   }
 

@@ -1,10 +1,14 @@
 import React from "react";
+import { useMediaQuery } from 'react-responsive'
 import TestimonialOne from "../components/TestimonialOne";
 import Benefits from "../components/Benefits";
 import Recruits from "../components/Recruits";
 import Button from "../components/Button";
 
 export default function HomePage() {
+
+  const isMobile = useMediaQuery({query: '(max-width: 767px)'});
+  const isTablet = useMediaQuery({query: '(min-width: 768px)'});
 
   // Opens popup video overlay, scrolls to top of page and plays video
   function openOverlay() {
@@ -65,7 +69,8 @@ export default function HomePage() {
       <TestimonialOne
         class="background-black gray"
         title="TESTIMONIAL"
-        rightVideo="hide"
+        rightVideo={isMobile && "hide"}
+        leftVideo={isTablet && "hide"}
       />
 
       <section className="email-request">
