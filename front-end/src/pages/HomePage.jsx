@@ -9,6 +9,16 @@ export default function HomePage() {
 
   const isMobile = useMediaQuery({query: '(max-width: 767px)'});
   const isTablet = useMediaQuery({query: '(min-width: 768px)'});
+  const biggerScreens = useMediaQuery({query: '(min-width: 1200px)'});
+
+  function updateBtn() {
+    if(biggerScreens) {
+      return "med-btn yellow-btn";
+    }
+    else {
+      return "sm-btn yellow-btn";
+    }
+  }
 
   // Opens popup video overlay, scrolls to top of page and plays video
   function openOverlay() {
@@ -29,7 +39,7 @@ export default function HomePage() {
   }
 
   return (
-    <div>
+    <div className="home-page-wrapper">
       <div className="popup-video-wrapper">
         <div className="popup-video-inner-wrapper">
           <i className="fas fa-times" onClick={closeOverlay}></i>
@@ -46,7 +56,7 @@ export default function HomePage() {
           <div>
             <h1>Find the Perfect MOS for you.</h1>
             <Button
-              btnClass="sm-btn yellow-btn"
+              btnClass={updateBtn()}
               btnText="WATCH NOW"
               onClick={openOverlay}
             />
@@ -56,13 +66,13 @@ export default function HomePage() {
           //autoplay="autoplay"
           muted="muted"
           loop="loop"
-          src="https://luis-pagan.nyc3.digitaloceanspaces.com/Nation_Gaurd_Video.mp4"
+          src="https://luis-pagan.nyc3.digitaloceanspaces.com/NG-main.mp4"
         ></video>
       </section>
 
       <Benefits />
 
-      <TestimonialOne title="TESTIMONIAL" rightVideo="hide" />
+      <TestimonialOne class="background-white" title="TESTIMONIAL" rightVideo="hide" />
 
       <Recruits />
 

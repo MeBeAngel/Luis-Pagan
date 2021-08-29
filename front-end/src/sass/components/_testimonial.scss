@@ -2,7 +2,7 @@
   padding: 20px 15px;
 
   .testimonial {
-    margin: 20px auto 0 auto;
+    margin: 0 auto 0 auto;
     max-width: 508px;
 
     .testimonial__video {
@@ -18,13 +18,13 @@
 
 @media (min-width: 768px) {
   .testimonial-wrapper {
-    padding: 20px 15px;
+    padding: 25px 15px;
 
     .testimonial {
       display: flex;
       justify-content: space-around;
       align-items: flex-start;
-      max-width: 100%;
+      max-width: 1160px;
 
       .testimonial__video {
         width: 45%;

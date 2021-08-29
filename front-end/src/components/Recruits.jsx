@@ -7,12 +7,10 @@ import RecruitCard from "../components/RecruitCard";
 import Image from "../images/recruit.svg";
 
 export default function Recruits(props) {
-
   ///// Checks for screen width changes
   const isMobile = useMediaQuery({ query: "(max-width: 767px)" });
   const isTablet = useMediaQuery({ query: "(max-width: 1099px)" });
   const biggerScreens = useMediaQuery({ query: "(min-width: 1100px" });
-
 
   ///// Empty settings var for recruit slider. Settings are loaded in conditionally below according to screen width //////
   let settings = {};
@@ -45,7 +43,13 @@ export default function Recruits(props) {
 
   return (
     <div className="background-yellow recruit-wrapper">
-      <h2> RECRUITS</h2>
+      <h1> MEET THE RECRUITS</h1>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua. Metus aliquam
+        eleifend mi in nulla posuere sollicitudin. Facilisis volutpat est velit
+        egestas.
+      </p>
       <Slider className="slider" {...settings}>
         <RecruitCard
           recruitImage={Image}
@@ -72,7 +76,7 @@ export default function Recruits(props) {
           mos="Toilet bowl cleaner (F12)"
           funFact="Fun Fact text goes here"
         />
-                <RecruitCard
+        <RecruitCard
           recruitImage={Image}
           recruitName="Angel Gonzalez"
           doe="12/11/20"
@@ -80,7 +84,7 @@ export default function Recruits(props) {
           mos="Toilet bowl cleaner (F12)"
           funFact="Fun Fact text goes here"
         />
-                <RecruitCard
+        <RecruitCard
           recruitImage={Image}
           recruitName="Angel Gonzalez"
           doe="12/11/20"
@@ -88,7 +92,7 @@ export default function Recruits(props) {
           mos="Toilet bowl cleaner (F12)"
           funFact="Fun Fact text goes here"
         />
-                <RecruitCard
+        <RecruitCard
           recruitImage={Image}
           recruitName="Angel Gonzalez"
           doe="12/11/20"

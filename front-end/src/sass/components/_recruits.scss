@@ -1,7 +1,19 @@
 .recruit-wrapper {
+  text-align: center;
   width: 100%;
   padding: 20px 0 0 0;
   overflow: hidden;
+
+  h1 {
+    padding-left: 15px;
+  }
+
+  p {
+    text-align: justify;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 15px;
+  }
 
   .slider {
     max-width: 370px;
