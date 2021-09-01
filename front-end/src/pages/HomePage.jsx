@@ -1,30 +1,19 @@
 import React from "react";
-import { useMediaQuery } from 'react-responsive'
+import { useMediaQuery } from "react-responsive";
 import TestimonialOne from "../components/TestimonialOne";
 import Benefits from "../components/Benefits";
 import Recruits from "../components/Recruits";
 import Button from "../components/Button";
 
 export default function HomePage() {
-
   ////////// Media Query Vars //////////
 
-  const isMobile = useMediaQuery({query: '(max-width: 767px)'});
-  const isTablet = useMediaQuery({query: '(min-width: 768px)'});
-  const biggerScreens = useMediaQuery({query: '(min-width: 1200px)'});
+  const isMobile = useMediaQuery({ query: "(max-width: 767px)" });
+  const isTablet = useMediaQuery({ query: "(min-width: 768px)" });
+  const biggerScreens = useMediaQuery({ query: "(min-width: 1200px)" });
 
   /////////////////////////////////////
 
-
-
-  function updateBtn() {
-    if(biggerScreens) {
-      return "med-btn yellow-btn";
-    }
-    else {
-      return "sm-btn yellow-btn";
-    }
-  }
 
 
   ///////// Popup video logic //////////
@@ -51,8 +40,6 @@ export default function HomePage() {
 
   /////////////////////////////////////
 
-
-
   return (
     <div className="home-page-wrapper">
       <div className="popup-video-wrapper">
@@ -72,14 +59,14 @@ export default function HomePage() {
           <div>
             <h1>Find the Perfect JOB for you.</h1>
             <Button
-              btnClass={updateBtn()}
+              btnClass="jumbotron-btn yellow-btn"
               btnText="WATCH NOW"
               onClick={openOverlay}
             />
           </div>
         </div>
         <video
-          //autoplay="autoplay"
+          autoplay="autoplay"
           muted="muted"
           loop="loop"
           src="https://luis-pagan.nyc3.digitaloceanspaces.com/NG-main.mp4"
@@ -88,15 +75,23 @@ export default function HomePage() {
 
       <Benefits />
 
-      <TestimonialOne class="background-white" title="TESTIMONIAL" rightVideo="hide" />
+      <TestimonialOne
+        class="background-gray"
+        title="TESTIMONIAL"
+        rightVideo="hide"
+        bioLeftClass="black"
+        bioRightClass="hide"
+      />
 
       <Recruits />
 
       <TestimonialOne
-        class="background-black gray"
+        class="background-black"
         title="TESTIMONIAL"
         rightVideo={isMobile && "hide"}
         leftVideo={isTablet && "hide"}
+        bioLeftClass="hide"
+        bioRightClass="gray"
       />
 
       <section className="email-request">
