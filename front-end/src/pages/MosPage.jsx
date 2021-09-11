@@ -1,34 +1,85 @@
-import { React, useState } from "react";
+import { React, useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import MosCard from "../components/MosCard";
 import Button from "../components/Button";
 import Test from "../images/test.svg";
-import Test2 from "../images/test2.svg";
-import Test3 from "../images/test3.svg";
 
 export default function MosPage() {
+  ////////// Remove videoWrapper block after video ends //////////
+  useEffect(() => {
+    const video = document.getElementsByClassName("mos-video");
+    const videoWrapper = document.querySelector(".mos-video-wrapper");
+    const flipCardInner = document.querySelector(".flip-card-inner");
+
+    for (var i = 0; i < video.length; i++) {
+      video[i].onended = (e) => {
+        videoWrapper.style.display = "none";
+        flipCardInner.style.visibility = "visible";
+      };
+    }
+  }, []);
+
   //////////////////////////////////////////////////////////////////////////////////////////
   const [isVideoOpen, setIsVideoOpen] = useState(false);
 
   // Opens MOS card video overlay
-  function openOverlay() {
-    const mosVideo = document.querySelector("#mos-video");
-    document.querySelector(".mos-video-wrapper").style.display = "block";
+  function openOverlay(e) {
+    const videoWrapper =
+      e.target.parentNode.parentNode.parentNode.parentNode.children[0];
+    const videoWrapperInner = e.target.parentNode.parentNode;
+    const mosVideo = videoWrapper.children[0];
+
+    videoWrapper.style.display = "block";
+    videoWrapperInner.style.visibility = "hidden";
     mosVideo.play();
+
     setIsVideoOpen(true);
   }
 
   // Closes mos card video overlay, pauses video and resets video current time back to 0
-  function closeOverlay() {
+  function closeOverlay(e) {
     if (isVideoOpen === true) {
-      const mosVideo = document.querySelector("#mos-video");
-      document.querySelector(".mos-video-wrapper").style.display = "none";
-      mosVideo.pause();
-      mosVideo.currentTime = 0;
+      const mosVideoWrapper =
+        document.getElementsByClassName("mos-video-wrapper");
+      const flipCardInner = document.getElementsByClassName("flip-card-inner");
+      const mosVideo = document.getElementsByClassName("mos-video");
+
+      for (let i = 0; i < mosVideoWrapper.length; i++) {
+        mosVideoWrapper[i].style.display = "none";
+      }
+
+      for (let i = 0; i < mosVideo.length; i++) {
+        mosVideo[i].pause();
+        mosVideo[i].currentTime = 0;
+      }
+
+      for (let i = 0; i < flipCardInner.length; i++) {
+        flipCardInner[i].style.visibility = "visible";
+      }
+
       setIsVideoOpen(false);
     }
   }
   ////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+    ////////// State for MOS cards //////////
+    const [mosCards, setMosCards] = useState([]);
+
+    ////////// Strapi API call for MOS Cards //////////
+    useEffect(() => {
+      fetch('http://localhost:4000/mos-cards', {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      })
+        .then(response => response.json())
+        .then(data => setMosCards(data));
+      
+    }, []);
+    /////////////////////////////////////////////////
 
   return (
     <div className="mos-page" onClick={closeOverlay}>
@@ -51,43 +102,20 @@ export default function MosPage() {
         </Link>
       </div>
       <div className="mos-wrapper">
-        <MosCard
-          mosTitle="Combat Engineer"
-          mosNumber="12B"
-          mosDescription="This is a rough-and-tumble, hands-on job. You get all the
-              excitement of the field, and need to problem solve on the spot —
-              oftentimes in high-stress situations. 12Bs construct fighting
-              positions, help the team navigate rough terrain, place and
-              detonate explosives, detect mines, and a lot more."
-          mosImg={Test}
+        
+
+        {mosCards.map((card) => {
+          return <MosCard
+          key={card.id}
+          mosTitle={card.title}
+          mosNumber={card.number}
+          mosDescription={card.description}
+          mosImg={`http://localhost:4000${card.image.url}`}
+          videoUrl={card.video_url}
           btnOnClick={openOverlay}
           videoOnClick={closeOverlay}
         />
-        <MosCard
-          mosTitle="Signal Support Systems Specialist"
-          mosNumber="25U"
-          mosDescription="MOS 25U has a long-winded name, but in the Army they just call them Commo guys (or girls). Their primary job is to make sure that radio systems, computers, local networks, generators, etc. are all working properly."
-          mosImg={Test2}
-        />
-        <MosCard
-          mosTitle="Army Military Working Dog Handler"
-          mosNumber="31K"
-          mosDescription="When it comes to the top 10 Army MOSs, this one was a bit of a no-brainer. Getting paid to work with dogs all day is “dream job” material for a ton of people. MWD (Military Working Dog) Handlers train their dogs to perform military operations overseas and at home, from attacking threats to sniffing out bombs. Dogs are also a powerful asset to soldiers suffering with PTSD."
-          mosImg={Test3}
-        />
-        <MosCard mosTitle="Air Defense" />
-
-        <MosCard mosTitle="Combat Medic" />
-
-        <MosCard mosTitle="Army Military Working Dog Handler" />
-
-        <MosCard mosTitle="Army Military Working Dog Handler" />
-
-        <MosCard mosTitle="Army Military Working Dog Handler" />
-
-        <MosCard mosTitle="Army Military Working Dog Handler" />
-
-        <MosCard mosTitle="Army Military Working Dog Handler" />
+        })}
       </div>
     </div>
   );

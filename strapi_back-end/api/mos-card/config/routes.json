@@ -1,0 +1,52 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/mos-cards",
+      "handler": "mos-card.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/mos-cards/count",
+      "handler": "mos-card.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/mos-cards/:id",
+      "handler": "mos-card.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/mos-cards",
+      "handler": "mos-card.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/mos-cards/:id",
+      "handler": "mos-card.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/mos-cards/:id",
+      "handler": "mos-card.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

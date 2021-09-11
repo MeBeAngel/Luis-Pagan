@@ -1,0 +1,52 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/recruit-cards",
+      "handler": "recruit-card.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/recruit-cards/count",
+      "handler": "recruit-card.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/recruit-cards/:id",
+      "handler": "recruit-card.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/recruit-cards",
+      "handler": "recruit-card.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/recruit-cards/:id",
+      "handler": "recruit-card.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/recruit-cards/:id",
+      "handler": "recruit-card.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

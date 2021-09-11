@@ -1,0 +1,42 @@
+{
+  "kind": "collectionType",
+  "collectionName": "recruit_cards",
+  "info": {
+    "name": "Recruit Card"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "image": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false,
+      "pluginOptions": {}
+    },
+    "name": {
+      "type": "string"
+    },
+    "enlistment": {
+      "type": "string"
+    },
+    "rank": {
+      "type": "string"
+    },
+    "mos": {
+      "type": "string"
+    },
+    "fact": {
+      "type": "string"
+    }
+  }
+}

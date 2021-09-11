@@ -1,56 +1,73 @@
 import React from "react";
-import FormSelect, {
-  FormSelectNum,
-  FormSelectTextArea,
-} from "../components/FormSelect";
+import { useMediaQuery } from "react-responsive";
 import Button from "../components/Button";
 
 export default function FormPage(props) {
+
+  const isMobile = useMediaQuery({ query: "(min-width: 540px)" });
+
+
   return (
     <div className="form-page">
+      <div className="form-page-intro">
+        <h1>Almost There!</h1>
+        <p>
+          You’ve taken the first crucial step alone, but rest assured that we
+          will take the rest of them together.
+        </p>
+      </div>
       <form>
-        <FormSelect question="ARE YOU A U.S. CITIZEN OR PERMANENT RESIDENT OF THE U.S.?" />
-        <FormSelectNum valueName="age" question="WHAT IS YOUR AGE?" />
-        <FormSelect question="DO YOU CURRENTLY HAVE ANY MEDICAL ISSUES OR CONCERNS?" />
-
-        <FormSelectTextArea id="medicalConcerns" rows="3" question="IF SO, PLEASE EXPLAIN FURTHER." questionClass="sub-question" placeholder="Type Here..." />
-
-        <FormSelect question="HAVE YOU EVER HAD SURGERY OR BROKEN ANY BONES?" />
-        <FormSelect question="DO YOU HAVE ASTHMA?" />
-        <FormSelect question="HAVE YOU EVER BEEN PROCESSED AT MEPS?" />
-        <FormSelect question="HAVE YOU STEPPED INTO A RECRUITER’S OFFICE? (FOR ANY SERVICE BRANCH)" />
-        <FormSelect question="HAVE YOU SERVED IN THE MILITARY PREVIOUSLY?" />
-        <FormSelect question="HAVE YOU BEEN ARRESTED BEFORE? (REGARDLESS OF OUTCOME)" />
-
         <div className="form-question">
-          <p>WHAT IS YOUR HIGHEST LEVEL OF EDUCATION?</p>
-          <select className="form-select">
-            <option selected>Select</option>
-            <option value="ged">GED</option>
-            <option value="highschool">Highschool</option>
-            <option value="college">College</option>
-          </select>
+          <div className="question-inner">
+            <p>Full Name</p>
+            <input
+              type="text"
+              className="form-control"
+              id="name"
+              name="name"
+              placeholder="Type Here.."
+            />
+          </div>
         </div>
 
-        <FormSelectNum valueName="credits" question="IF YOU HAVE SOME COLLEGE - HOW MANY CREDITS?" />
-
         <div className="form-question">
-          <p>WHAT IS YOUR CURRENT MARITAL STATUS?</p>
-          <select className="form-select">
-            <option selected>Select</option>
-            <option value="single">Single</option>
-            <option value="married">Married</option>
-            <option value="divorced">Divorced</option>
-          </select>
+          <div className="question-inner">
+            <p>email</p>
+            <input
+              type="email"
+              className="form-control"
+              id="email"
+              name="email"
+              placeholder="Type Here.."
+            />
+          </div>
         </div>
 
-        <FormSelect question="DO YOU HAVE ANY CHILDREN?" />
+        <div className="form-question">
+          <div className="question-inner">
+            <p>Phone</p>
+            <input
+              type="text"
+              className="form-control"
+              id="phone"
+              name="phone"
+              placeholder="Type Here.."
+            />
+          </div>
+        </div>
 
-        <FormSelectNum valueName="numOfChildren" question="IF YOU ANSWERED YES - HOW MANY?" />
-
-        <FormSelect question="DO YOU CURRENTLY HAVE ANY TATTOOS?" />
-
-        <FormSelectTextArea id="numOfTattoos" rows="3" question="IF SO,  HOW MANY AND WHERE ARE THEY LOCATED?" questionClass="sub-question" placeholder="Type Here..." />
+        <div className="form-question">
+          <div className="question-inner">
+            <p>Why do you want to join the National Guard?</p>
+            <textarea
+              className="form-control"
+              id="textareaQuestion"
+              name="textareaQuestion"
+              rows={isMobile ? "10" : "6"}
+              placeholder="Type here.."
+            ></textarea>
+          </div>
+        </div>
 
         <Button btnClass="form-btn yellow-btn btn-shadow" btnText="Submit" />
       </form>

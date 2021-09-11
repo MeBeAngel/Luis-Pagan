@@ -1,3 +1,17 @@
+*, p, h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+}
+
+.link-reset {
+  text-decoration: none;
+}
+
 .yellow {
   color: #ffd530;
 }
@@ -34,33 +48,6 @@
   background-color: rgba(0, 0, 0, 0.5);
 }
 
-h1, h2, h3, h4, h5, h6, p, button, span {
-  font-family: "Nunito Sans", sans-serif;
-}
-
-@media (min-width: 768px) {
-  h1 {
-    font-size: 40px;
-  }
-}
-.bold {
-  font-weight: bold;
-}
-
-*, p, h1, h2, h3, h4, h5, h6 {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-html {
-  font-size: 16px;
-}
-
-.link-reset {
-  text-decoration: none;
-}
-
 html {
   width: 100vw;
   min-height: 100vh;
@@ -86,6 +73,24 @@ body {
 
 .hide {
   display: none;
+}
+
+h1, h2, h3, h4, h5, h6, p, button, span {
+  font-family: "Nunito Sans", sans-serif;
+}
+
+h1 {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+@media (min-width: 768px) {
+  h1 {
+    font-size: 40px;
+  }
+}
+.bold {
+  font-weight: bold;
 }
 
 button {
@@ -303,6 +308,7 @@ footer .footer-inner-wrapper {
   display: flex;
   justify-content: space-around;
   align-items: center;
+  flex-direction: column;
   width: 100%;
   padding: 10px 0;
 }
@@ -318,10 +324,14 @@ footer .footer-inner-wrapper .quick-links .quick-link {
   color: #bfb8ab;
 }
 footer .footer-inner-wrapper .national-gaurd-contact-info {
-  text-align: left;
+  text-align: center;
+}
+footer .footer-inner-wrapper .social-tablet {
+  display: none;
 }
 footer .footer-inner-wrapper .social-media {
   text-align: center;
+  margin-bottom: 10px;
 }
 footer .footer-inner-wrapper .social-media div {
   display: flex;
@@ -333,6 +343,32 @@ footer .footer-inner-wrapper .social-media div img {
   height: 15px;
 }
 
+@media (orientation: landscape) {
+  footer {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: row;
+    height: 150px;
+  }
+  footer .footer-inner-wrapper {
+    flex-direction: row;
+  }
+  footer .footer-inner-wrapper p {
+    font-size: 1rem;
+    line-height: 1.9rem;
+  }
+  footer .footer-inner-wrapper .social-mobile {
+    display: none;
+  }
+  footer .footer-inner-wrapper .social-tablet {
+    display: block;
+  }
+  footer .footer-inner-wrapper .social-media div img {
+    width: 25px;
+    height: 25px;
+  }
+}
 @media (min-width: 768px) {
   footer {
     display: flex;
@@ -340,9 +376,18 @@ footer .footer-inner-wrapper .social-media div img {
     align-items: center;
     height: 150px;
   }
+  footer .footer-inner-wrapper {
+    flex-direction: row;
+  }
   footer .footer-inner-wrapper p {
     font-size: 1rem;
     line-height: 1.9rem;
+  }
+  footer .footer-inner-wrapper .social-mobile {
+    display: none;
+  }
+  footer .footer-inner-wrapper .social-tablet {
+    display: block;
   }
   footer .footer-inner-wrapper .social-media div img {
     width: 25px;
@@ -414,27 +459,64 @@ footer .footer-inner-wrapper .social-media div img {
 .testimonial-wrapper .testimonial .testimonial__video .reset-icon img {
   width: 90px;
 }
+.testimonial-wrapper .testimonial .testimonial__info .info-block {
+  position: relative;
+}
 .testimonial-wrapper .testimonial .testimonial__info .info-block .quote {
-  text-align: left;
+  text-align: center;
+  font-weight: bold;
+  font-style: italic;
   margin-bottom: 20px;
 }
-.testimonial-wrapper .testimonial .testimonial__info .info-block .name, .testimonial-wrapper .testimonial .testimonial__info .info-block .date {
+.testimonial-wrapper .testimonial .testimonial__info .info-block .name,
+.testimonial-wrapper .testimonial .testimonial__info .info-block .date {
   display: flex;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: center;
   font-weight: bold;
   text-transform: uppercase;
+  width: 100%;
 }
-.testimonial-wrapper .testimonial .testimonial__info .info-block .name span, .testimonial-wrapper .testimonial .testimonial__info .info-block .date span {
+.testimonial-wrapper .testimonial .testimonial__info .info-block .name .block,
+.testimonial-wrapper .testimonial .testimonial__info .info-block .date .block {
   display: inline-block;
   width: 10px;
   height: 20px;
   margin: 0 10px 0 5px;
 }
+.testimonial-wrapper .testimonial .testimonial__info .info-block .name .date-block,
+.testimonial-wrapper .testimonial .testimonial__info .info-block .date .date-block {
+  margin-left: 10px;
+}
 .testimonial-wrapper .testimonial .testimonial__info .info-block .name {
   margin-bottom: 10px;
 }
+.testimonial-wrapper .testimonial .testimonial__info .info-block .name__inner-text, .testimonial-wrapper .testimonial .testimonial__info .info-block .date__inner-text {
+  display: flex;
+  align-items: center;
+}
 
+.black-texture-bg {
+  padding-top: 50px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-image: url("./images/testimony-bg-black.svg");
+}
+
+.gray-texture-bg {
+  padding-bottom: 50px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-image: url("./images/testimony-bg-gray.svg");
+}
+
+@media (min-width: 768px) {
+  .testimonial-wrapper .testimonial .testimonial__info .info-block .quote {
+    font-size: 20px;
+  }
+}
 @media (min-width: 1000px) {
   .testimonial-wrapper {
     padding: 45px 15px;
@@ -452,14 +534,38 @@ footer .footer-inner-wrapper .social-media div img {
   .testimonial-wrapper .testimonial .testimonial__info {
     width: 45%;
   }
+  .testimonial-wrapper .testimonial .testimonial__info .info-block p {
+    font-size: 20px;
+  }
   .testimonial-wrapper .testimonial .testimonial__info .info-block .quote {
     text-align: left;
   }
-  .testimonial-wrapper .testimonial .testimonial__info .info-block .name, .testimonial-wrapper .testimonial .testimonial__info .info-block .date {
+  .testimonial-wrapper .testimonial .testimonial__info .info-block .name-date-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+  .testimonial-wrapper .testimonial .testimonial__info .info-block .name-date-grid .name,
+.testimonial-wrapper .testimonial .testimonial__info .info-block .name-date-grid .date {
     padding-left: 0;
   }
-  .testimonial-wrapper .testimonial .testimonial__info .info-block .name {
+  .testimonial-wrapper .testimonial .testimonial__info .info-block .name-date-grid .name {
     margin-bottom: 10px;
+  }
+
+  .black-texture-bg {
+    padding-top: 50px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url("./images/testimony-bg-black.svg");
+  }
+
+  .gray-texture-bg {
+    padding-bottom: 50px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url("./images/testimony-bg-gray.svg");
   }
 }
 .benefits {
@@ -630,8 +736,9 @@ footer .footer-inner-wrapper .social-media div img {
   width: 100%;
   z-index: 1;
   font-size: 20px;
-  font-weight: 400;
+  font-weight: bold;
   padding-right: 8px;
+  text-transform: uppercase;
 }
 .recruit-wrapper .recruit-item .recruit-name {
   bottom: 200px;
@@ -671,41 +778,6 @@ footer .footer-inner-wrapper .social-media div img {
   overflow: hidden;
 }
 
-.popup-video-wrapper {
-  display: none;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100vh;
-  padding: 0 15px;
-  background-color: rgba(0, 0, 0, 0.9);
-  z-index: 3;
-}
-.popup-video-wrapper .popup-video-inner-wrapper {
-  position: relative;
-  width: 100%;
-  height: 100%;
-}
-.popup-video-wrapper .popup-video-inner-wrapper .fa-times {
-  position: absolute;
-  top: 15px;
-  right: 0px;
-  font-size: 50px;
-  color: #ffd530;
-  z-index: 2;
-}
-.popup-video-wrapper .popup-video-inner-wrapper video {
-  position: absolute;
-  z-index: -1;
-  width: 100%;
-  max-width: 1500px;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 2;
-}
-
 .mos-card-wrapper {
   text-align: center;
   width: 375px;
@@ -738,12 +810,25 @@ footer .footer-inner-wrapper .social-media div img {
   /* The flip card container - set the width and height to whatever you want. We have added the border property to demonstrate that the flip itself goes out of the box on hover (remove perspective if you don't want the 3D effect */
   /* Do an horizontal flip when you move the mouse over the flip box container */
 }
+.mos-card-wrapper .mos-card .mos-video-wrapper {
+  display: none;
+  position: absolute;
+  top: 37px;
+  left: 37px;
+  width: 292px;
+  height: 293px;
+  background-color: #ffd530;
+  z-index: 1;
+}
+.mos-card-wrapper .mos-card .mos-video-wrapper video {
+  height: 100%;
+}
 .mos-card-wrapper .mos-card .flip-card {
   position: absolute;
   top: 37px;
   left: 37px;
   background-color: #121212;
-  width: 292px;
+  width: 293px;
   height: 293px;
   perspective: 1000px;
   /* Remove this if you don't want the 3D effect */
@@ -801,18 +886,6 @@ footer .footer-inner-wrapper .social-media div img {
   text-align: justify;
   font-size: 14px;
   color: #ffd530;
-}
-.mos-card-wrapper .mos-card .flip-card .flip-card-back .mos-video-wrapper {
-  display: none;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: #ffd530;
-}
-.mos-card-wrapper .mos-card .flip-card .flip-card-back .mos-video-wrapper video {
-  height: 100%;
 }
 .mos-card-wrapper .mos-card .flip-card:hover .flip-card-inner {
   transform: rotateY(180deg);
@@ -929,8 +1002,9 @@ footer .footer-inner-wrapper .social-media div img {
   width: 100%;
   height: 230px;
   padding-top: 30px;
+  margin-top: auto;
   background-image: url("./images/about_bg.svg");
-  background-size: 100%;
+  background-size: cover;
   background-position: center;
 }
 .about-page .image img {
@@ -939,9 +1013,11 @@ footer .footer-inner-wrapper .social-media div img {
 }
 .about-page .bio {
   text-align: justify;
-  padding: 25px;
+  padding: 20px 15px 0 15px;
   background-color: #121212;
   color: #bfb8ab;
+  max-width: 1000px;
+  margin: 0 auto;
 }
 .about-page .bio p {
   margin-bottom: 20px;
@@ -950,7 +1026,12 @@ footer .footer-inner-wrapper .social-media div img {
   margin-bottom: 0;
 }
 
-@media (min-width: 1200px) {
+@media (min-width: 740px) {
+  .about-page .image {
+    height: 450px;
+  }
+}
+@media (min-width: 1400px) {
   .about-page {
     background-size: cover;
     background-position: center;
@@ -962,7 +1043,7 @@ footer .footer-inner-wrapper .social-media div img {
     display: none;
   }
   .about-page .bio {
-    width: 95%;
+    max-width: 100%;
     height: 100vh;
     margin: 0 auto;
     padding: 0;
@@ -978,7 +1059,6 @@ footer .footer-inner-wrapper .social-media div img {
 }
 .mos-page {
   display: flex;
-  justify-content: center;
   align-items: center;
   flex-direction: column;
   min-height: 100vh;
@@ -1026,14 +1106,37 @@ footer .footer-inner-wrapper .social-media div img {
     padding: 50px 0;
   }
 }
+@media (min-width: 1750px) {
+  .mos-page .mos-wrapper {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 50px 50px;
+    padding: 50px 0;
+  }
+}
 .form-page {
   text-align: center;
   width: 100vw;
   min-height: 100vh;
   background-color: #bfb8ab;
 }
+.form-page .form-page-intro {
+  text-align: center;
+  width: 100%;
+  padding: 30px 15px 15px 15px;
+  background-color: #ffd530;
+}
+.form-page .form-page-intro p {
+  text-align: center;
+  max-width: 816px;
+  margin: 0 auto 15px auto;
+  font-size: 16px;
+  color: #121212;
+  font-weight: bold;
+}
 .form-page form {
+  max-width: 540px;
   height: 100%;
+  margin: 0 auto;
   padding: 40px 15px;
 }
 .form-page form .form-question {
@@ -1041,32 +1144,31 @@ footer .footer-inner-wrapper .social-media div img {
   margin-bottom: 50px;
 }
 .form-page form .form-question p {
-  text-align: center;
+  text-align: left;
   font-weight: bold;
   margin-bottom: 15px;
+  text-transform: uppercase;
 }
-.form-page form .form-question .sub-question {
-  font-style: italic;
-}
-.form-page form .form-question .form-select,
-.form-page form .form-question input, .form-page form .form-question textarea {
-  width: 90%;
-  margin: 0 auto;
+.form-page form .form-question input,
+.form-page form .form-question textarea {
+  width: 100%;
+  font-weight: bold;
+  border: none;
+  background-color: #ffd530;
   box-shadow: 7px 7px 12px rgba(0, 0, 0, 0.3);
 }
-.form-page form .form-question textarea {
-  font-weight: bold;
-  background-color: #ffd530;
-  border: none;
-}
+.form-page form .form-question input::placeholder,
 .form-page form .form-question textarea::placeholder {
   opacity: 0.3;
 }
-.form-page form .form-question select {
+.form-page form .form-question input {
   height: 50px;
-  font-weight: bold;
-  background-color: #ffd530;
-  border: none;
+}
+
+@media (min-width: 450px) {
+  .form-page form .form-question .question-inner p {
+    text-align: center;
+  }
 }
 
 /*# sourceMappingURL=index.css.map */
