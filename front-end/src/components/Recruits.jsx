@@ -4,8 +4,6 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import RecruitCard from "../components/RecruitCard";
-import Image from "../images/recruit.svg";
-import TestImage from "../images/test-recruit.svg";
 
 export default function Recruits(props) {
   ///// Checks for screen width changes

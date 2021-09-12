@@ -2,7 +2,6 @@ import { React, useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import MosCard from "../components/MosCard";
 import Button from "../components/Button";
-import Test from "../images/test.svg";
 
 export default function MosPage() {
   ////////// Remove videoWrapper block after video ends //////////
